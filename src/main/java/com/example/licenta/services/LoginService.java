@@ -1,10 +1,10 @@
 package com.example.licenta.services;
 
-
-import com.example.licenta.entities.UserEntity;
-import com.example.licenta.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.example.licenta.repositories.UserRepository;
+import com.example.licenta.entities.UserEntity;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
@@ -18,8 +18,18 @@ public class LoginService {
         this.userRepository = userRepository;
     }
 
-    public boolean authenticateUser(String email, String password) {
+    @Transactional
+    public String login(String email, String password) {
         Optional<UserEntity> userOptional = userRepository.findByEmailAndPassword(email, password);
-        return userOptional.isPresent();
+        if (userOptional.isPresent()) {
+            UserEntity user = userOptional.get();
+            String role = user.getRol();
+            if ("user".equals(role)) {
+                return "/api/users/user";
+            } else if ("admin".equals(role)) {
+                return "/api/users/admin";
+            }
+        }
+        return "/login"; // Redirect to login endpoint if user not found or invalid credentials
     }
 }

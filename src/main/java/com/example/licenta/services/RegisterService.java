@@ -16,9 +16,9 @@ public class RegisterService {
         this.userRepository = userRepository;
     }
 
-    public void registerUser(String firstName, String lastName, String email, String password) {
+    public void registerUser(String firstName, String lastName, String email, String password, String rol) {
         if (userRepository.existsByEmail(email)) {
-            throw new IllegalArgumentException("Email already exists");
+            throw new IllegalArgumentException("Mail already exists");
         }
 
         UserEntity user = new UserEntity();
@@ -26,6 +26,7 @@ public class RegisterService {
         user.setLastName(lastName);
         user.setEmail(email);
         user.setPassword(password);
+        user.setRol("user");
         userRepository.save(user);
     }
 }

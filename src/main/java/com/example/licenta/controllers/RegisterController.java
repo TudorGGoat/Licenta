@@ -24,7 +24,7 @@ public class RegisterController {
             @RequestParam("password") String password){
         ModelAndView modelAndView = new ModelAndView();
         try {
-            registerService.registerUser(firstName, lastName, email, password);
+            registerService.registerUser(firstName, lastName, email, password, "user");
             modelAndView.setViewName("redirect:/login");
         } catch (IllegalArgumentException e) {
             modelAndView.setViewName("redirect:/register");

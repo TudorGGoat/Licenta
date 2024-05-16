@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Register</title>
-    <link rel="stylesheet" href="style_login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="test.css">
 </head>
 <body>
 <div class="background">
@@ -11,26 +12,23 @@
     <div class="shape"></div>
 </div>
 <form id="registerForm" action="/api/users/register" method="post" enctype="application/x-www-form-urlencoded">
-    <h3>Register Here</h3>
-    <label for="firstname">First Name</label>
+    <h3>Sign up</h3>
+    <label for="firstname"><i class="fas fa-user"></i>First Name</label>
     <input type="text" placeholder="First Name" id="firstname" name="firstname" title="First name should contain only letters" required>
     <span id="firstname-error" style="display:none; color:red;">First name should contain only letters</span>
-    <label for="lastname">Last Name</label>
+    <label for="lastname"><i class="fas fa-user"></i>Last Name</label>
     <input type="text" placeholder="Last Name" id="lastname" name="lastname" title="Last name should contain only letters" required>
     <span id="lastname-error" style="display:none; color:red;">Last name should contain only letters</span>
-    <label for="email">Email</label>
+    <label for="email"><i class="fas fa-envelope"></i>Email</label>
     <input type="email" placeholder="Email" id="email" name="email" required>
     <span id="email-error" style="display:none; color:red;">Invalid email format</span>
-    <label for="password">Password</label>
+    <label for="password"><i class="fas fa-lock"></i>Password</label>
     <input type="password" placeholder="Password" id="password" name="password" required>
-    <label for="confirm-password">Confirm Password</label>
+    <label for="confirm-password"><i class="fas fa-lock"></i>Confirm Password</label>
     <input type="password" placeholder="Confirm Password" id="confirm-password" name="confirmPassword" title="Password must contain at least 6 characters" required>
     <span id="password-match-error" style="display:none; color:red;">Passwords do not match</span>
     <button type="submit">Register</button>
     <a href="login" class="signup-btn">Login!</a>
 </form>
-
-<script src="validations.js"></script>
-
 </body>
 </html>

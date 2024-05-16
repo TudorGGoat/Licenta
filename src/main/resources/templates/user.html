@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Page</title>
+    <link rel="stylesheet" type="text/css" href="/user.css"> <!-- Include the CSS file -->
+</head>
+<body>
+<div class="container">
+    <h1>Optional Subjects</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Professor</th>
+            <th>Description</th>
+            <th>Available Seats</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Iterate through the subjects and display each one -->
+        <!-- Make sure "subjects" is the name of the attribute set in the controller -->
+        <tr th:each="subject : ${subjects}">
+            <td th:text="${subject.title}"></td>
+            <td th:text="${subject.professor}"></td>
+            <td th:text="${subject.description}"></td>
+            <td th:text="${subject.availableSeats}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
